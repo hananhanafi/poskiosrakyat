@@ -2,8 +2,8 @@
     <title>DAFTAR POS | KiosRakyat</title>
 <x-guest-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo"></br>
-            <img src="{{url('img/logokiosrakyat.png')}}" alt="" class="brand-image img-circle"
+        <x-slot name="logo">
+            <img src="{{url('img/logokiosrakyat.png')}}" alt="" class="brand-image img-circle mx-auto"
                 style="opacity: .8">
             <span class="brand-text font-weight-light" style="color: #000"><b>POS KiosRakyat</b></span>
         </x-slot>
