@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-md-6 fas fa-barcode">
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Kode/Nama Barang</label>
+                                        <label for="namabarang" class="col-sm-6 col-form-label">Kode/Nama Barang</label>
                                         <div class="col-sm-6">
                                             <input type="hidden" class="form-control" name="idretailerproduk"
                                                 id="idretailerproduk">
@@ -43,13 +43,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Harga Jual</label>
+                                        <label for="hargajual" class="col-sm-6 col-form-label">Harga Jual</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargajual" id="hargajual">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Foto Produk</label>
+                                        <label for="foto" class="col-sm-6 col-form-label">Foto Produk</label>
                                         <div class="col-sm-6">
                                             {{-- <input type="text" class="form-control" name="foto" id="foto"> --}}
                                             <img src="" id="foto" style="width: 150px;">
@@ -58,19 +58,19 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Harga Setelah Diskon</label>
+                                        <label for="hargadiskon" class="col-sm-6 col-form-label">Harga Setelah Diskon</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargadiskon" id="hargadiskon">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Jumlah</label>
+                                        <label for="jumlah" class="col-sm-6 col-form-label">Jumlah</label>
                                         <div class="col-sm-6">
                                             <input type="number"  min='1' class="form-control" name="jumlah" id="jumlah">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label">Deskripsi Produk</label>
+                                        <label for="deskripsiproduk" class="col-sm-6 col-form-label">Deskripsi Produk</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="deskripsiproduk" id="deskripsiproduk">
                                         </div>

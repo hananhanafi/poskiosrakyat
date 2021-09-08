@@ -8,9 +8,6 @@ use Auth;
 
 class StrukController extends Controller
 {
-   
-    }
-
     public function index()
     {
     
