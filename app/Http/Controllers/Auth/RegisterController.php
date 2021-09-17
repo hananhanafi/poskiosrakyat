@@ -64,7 +64,17 @@ class RegisterController extends Controller
      */
     public function showRetailerRegisterForm()
     {
-        return view('auth.register');
+        return view('auth.retailer.register');
+    }
+    public function showRetailerNotRegisterPage()
+    {
+        return view('auth.retailer.not-register');
+    }
+    protected function showSetAccountRetailer(Request $request)
+    {
+        // $user = Retailer::where('id_retailer', $request->id_retailer)->first();
+        return view('auth.retailer.set-account');
+        
     }
 
     /**
@@ -84,7 +94,48 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function retailerPhoneAuth(Request $request)
+    {
+        $this->validate($request, [
+            'phone_number' => 'required|string|max:255',
+        ]);
+        try{
+            // Retailer::updateOrCreate([ ]);
+            $user = Retailer::where('no_hp', $request->phone_number)->first();
+            if($user){
+                return response()->json(['status' => 'success', 'messages' => 'Berhasil', 'data' => $user]);
+            }else {
+                return response()->json(['status' => 'error', 'messages' => 'Gagal', 'data' => $user],404);
+            }
+        }catch(Exception $e) {
+            // DB::rollback();
+            return response()->json(['status' => 'error', 'messages' => $e->getMessage()]);
+        }
+    }
+    protected function retailerVerifiedOTP(Request $request)
+    {
+        $this->validate($request, [
+            'phone_number' => 'required|string|max:255',
+        ]);
+        try{
+            $user = Retailer::where('no_hp', $request->phone_number)->first();
+            if($user){
+                return view('auth.retailer.set-account', compact('user'));
+                // return redirect('/retailer/set-user', compact('user'));
+                // return redirect()->route('retailer-set-account', ['id_retailer' => $user->id_retailer]);
+            }else {
+                return response()->json(['status' => 'error', 'messages' => 'Gagal', 'data' => $user],404);
+            }
+        }catch(Exception $e) {
+            // DB::rollback();
+            return response()->json(['status' => 'error', 'messages' => $e->getMessage()]);
+        }
+    }
     /**
      * @param Request $request
      *
@@ -92,38 +143,62 @@ class RegisterController extends Controller
      */
     protected function createRetailer(Request $request)
     {
+        $user = Retailer::where('id_retailer', $request->id_retailer)->first();
+
         $this->validate($request, [
-            'nama_toko' => 'required|string|max:255',
-            'nama_pemilik' => 'required|string|max:255',
             'username' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
         DB::beginTransaction();
             try{
-                Retailer::updateOrCreate([
-                    'nama_toko' => $request->nama_toko,
-                    'nama_pemilik' => $request->nama_pemilik,
-                    'username' => $request->username,
-                    'no_hp' => $request->no_hp,
-                    'village_id' => 1,
-                    'alamat' => "",
-                    'latitude' => "",
-                    'longitude' => "",
-                    'file_foto_depan' => "",
-                    'file_foto_ktp' => "",
-                    'warning_count' => 0,
-                    'password' => Hash::make($request->password),
-                ]);
+                Retailer::where('id_retailer', $request->id_retailer)
+                    ->update([
+                        'username' => $request->username,
+                        'password' => Hash::make($request->password),
+                    ]);
             }catch(\Exception $e) {
-               DB::rollback();
-               return response()->json(['status' => 'Create Tabel Retailer Fail', 'messages' => $e->getMessage()]);
+                DB::rollback();
+                return response()->json(['status' => 'Create Tabel Retailer Fail', 'messages' => $e->getMessage()]);
             }
         DB::commit();
 
-        return redirect()->intended('login/retailer');
+        return redirect()->intended('/retailer/login')->with('success-set-account', 'Berhasil membuat akun');
     }
+    // protected function createRetailer(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'nama_toko' => 'required|string|max:255',
+    //         'nama_pemilik' => 'required|string|max:255',
+    //         'username' => 'required|string|max:255',
+    //         'no_hp' => 'required|string|max:255',
+    //         'password' => 'required|string|min:8|confirmed',
+    //     ]);
+
+    //     DB::beginTransaction();
+    //         try{
+    //             Retailer::updateOrCreate([
+    //                 'nama_toko' => $request->nama_toko,
+    //                 'nama_pemilik' => $request->nama_pemilik,
+    //                 'username' => $request->username,
+    //                 'no_hp' => $request->no_hp,
+    //                 'village_id' => 1,
+    //                 'alamat' => "",
+    //                 'latitude' => "",
+    //                 'longitude' => "",
+    //                 'file_foto_depan' => "",
+    //                 'file_foto_ktp' => "",
+    //                 'warning_count' => 0,
+    //                 'password' => Hash::make($request->password),
+    //             ]);
+    //         }catch(\Exception $e) {
+    //            DB::rollback();
+    //            return response()->json(['status' => 'Create Tabel Retailer Fail', 'messages' => $e->getMessage()]);
+    //         }
+    //     DB::commit();
+
+    //     return redirect()->intended('login/retailer');
+    // }
 
     /**
      * @param Request $request

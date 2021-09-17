@@ -1,0 +1,134 @@
+$extra-small: 576px;
+$small: 576px;
+$medium: 768px;
+$large: 960px;
+$extra-large: 1200px;
+
+html, body, * {
+    font-family: 'Poppins', sans-serif;
+}
+.color-main {
+    color: #FF8C40;
+}
+.color-secondary {
+    color : #88C057;
+}
+.color-dark {
+    color: #474747;
+}
+.color-text {
+    color : #5E5E5E;
+}
+.color-grey {
+    color : #8B8B8C;
+}
+.bg-cream {
+    background-color: #FEF8F5;
+}
+.bg-brand-main {
+    background-color: #FF8C40;
+}
+.bg-brand-secondary {
+    background-color : #88C057;
+}
+.shadow-main {
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.14);
+}
+.border-16 {
+    border-radius: 16px;
+}
+.rounded-64 {
+    border-radius: 64px !important;
+}
+
+.btn-brand-main {
+    border-radius: 3px;
+    background-color: #FF8C40;
+    border: 1px solid #ddd;
+    color: #6c757d;
+    font-size: 12px;
+    height: 60px;
+    min-width: 80px;
+    padding: 15px 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.2);
+    
+    h5 {
+        margin-bottom: 0;
+    }
+}
+.btn-brand-secondary {
+    border-radius: 3px;
+    background-color: #88C057;
+    border: 1px solid #ddd;
+    color: #6c757d;
+    font-size: 12px;
+    height: 60px;
+    min-width: 80px;
+    padding: 15px 5px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.2);
+
+    h5 {
+        margin-bottom: 0;
+    }
+}
+.login-box {
+    width:480px;
+    @media screen and (max-width: $small) {
+        width: 90%;
+    }
+    // @media screen and (min-width: $medium) {
+    //     width: 90%;
+    // }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+    .card {
+        padding: 20px 28px;
+    }
+
+    .otp-input {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.login-box input {
+    border: unset;
+    border-bottom: 1px solid #A3A3A3;
+    border-radius: unset;
+    padding-left: 0;
+}
+
+.input-icon-left {
+    right: 0;
+    z-index: 99;
+}
+
+.right-0 {
+    right: 0;
+}
+.bottom-0 {
+    bottom: 0;
+}
+.left-0 {
+    left: 0;
+}
+.top-0 {
+    top: 0;
+}
+.z-99 {
+    z-index: 99;
+}

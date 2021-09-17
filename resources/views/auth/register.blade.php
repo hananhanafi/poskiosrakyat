@@ -9,7 +9,7 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-        <form method="POST" action="{{ url('register/retailer') }}">
+        <form method="POST" action="{{ url('retailer/register') }}">
             @csrf
 
             <div>

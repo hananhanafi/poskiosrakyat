@@ -59,7 +59,15 @@ class LoginController extends Controller
 
     public function showRetailerLoginForm()
     {
-        return view('auth.login-retailer');
+        return view('auth.retailer.login');
+    }
+    public function showRetailerForgotPasswordVerifyOTPForm()
+    {
+        return view('auth.retailer.forgot-password-verify-otp');
+    }
+    public function showRetailerForgotPasswordSetPasswordForm()
+    {
+        return view('auth.retailer.forgot-password-set-password');
     }
 
     public function retailerLogin(Request $request)

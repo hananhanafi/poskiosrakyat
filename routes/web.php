@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
@@ -23,16 +24,29 @@ Route::get('/', function () {
 
 Auth::routes();
 // RETAILER
-Route::get('/login/retailer', [LoginController::class, 'showRetailerLoginForm']);
-Route::get('/register/retailer', [RegisterController::class, 'showRetailerRegisterForm']);
-Route::post('/login/retailer', [LoginController::class, 'retailerLogin']);
-Route::post('/register/retailer', [RegisterController::class, 'createRetailer']);
-Route::get('/login-otp', [LoginController::class, 'loginOtp']);
-Route::get('/login-otp-verif', [LoginController::class, 'loginOtpVerif']);
+Route::post('/retailer/login', [LoginController::class, 'retailerLogin']);
+Route::get('/retailer/login', [LoginController::class, 'showRetailerLoginForm']);
+
+Route::get('/retailer/forgot-password', [ForgotPasswordController::class, 'showRetailerForgotPasswordForm']);
+Route::get('/retailer/forgot-password/otp-verified', [ForgotPasswordController::class, 'retailerVerifiedOTP']);
+Route::post('/retailer/forgot-password/update', [ForgotPasswordController::class, 'updatePassword']);
+// Route::post('/retailer/forgot-password/verify-otp', [LoginController::class, 'showRetailerForgotPasswordVerifyOTPForm']);
+// Route::post('/retailer/forgot-password/set-password', [LoginController::class, 'showRetailerForgotPasswordSetPasswordForm']);
+
+Route::get('/retailer/register', [RegisterController::class, 'showRetailerRegisterForm']);
+Route::get('/retailer/not-register', [RegisterController::class, 'showRetailerNotRegisterPage']);
+Route::post('/retailer/register/phone', [RegisterController::class, 'retailerPhoneAuth']);
+Route::get('/retailer/otp-verified', [RegisterController::class, 'retailerVerifiedOTP']);
+
+// Route::post('/retailer/register', [RegisterController::class, 'createRetailer']);
+Route::post('/retailer/set-user', [RegisterController::class, 'createRetailer']);
+
+// Route::get('/login-otp', [LoginController::class, 'loginOtp']);
+// Route::get('/login-otp-verif', [LoginController::class, 'loginOtpVerif']);
 
 // RETAILER OPERATOR
-Route::get('/login/retailer_operator', [LoginController::class, 'showRetailerOperatorLoginForm']);
-Route::post('/login/retailer_operator', [LoginController::class, 'retailerOperatorLogin']);
+Route::get('/retailer_operator/login', [LoginController::class, 'showRetailerOperatorLoginForm']);
+Route::post('/retailer_operator/login', [LoginController::class, 'retailerOperatorLogin']);
 
 Route::get('logout', [LoginController::class, 'logout']);
 

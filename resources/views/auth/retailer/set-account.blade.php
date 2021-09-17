@@ -1,18 +1,19 @@
 @extends('layouts.auth')
 
 @section('page_title')
-Login | POS Kios Rakyat
+Atur Akun | POS Kios Rakyat
 @endsection
-
 @section('card_content')
-                <p class="h6 mt-3 mb-4"><b>Silahkan Masuk</b></p>
+                <p class="h6 mt-3 mb-4"><b>Atur Akun Anda</b></p>
+                <p>{{ $user->id_retailer }}</p>
                 @if ($error = $errors->first())
                   <div class="alert alert-danger">
                     {{ $error }}
                   </div>
                 @endif
-                <form action="{{ url('retailer_operator/login') }}" method="post">
+                <form action="{{ url('/retailer/set-user') }}" method="POST">
                   @csrf
+                  <input type="hidden" class="form-control" id="nama" placeholder="Nama" value="{{$user->id_retailer}}" name="id_retailer">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Masukkan Username" id="username" name="username" :value="old('username')" required autofocus>
                     @error('username')
@@ -35,8 +36,8 @@ Login | POS Kios Rakyat
                   <br>
                   <div class="row">
                     <div class="col-12">
-                      <button type="submit" class="btn btn-block btn-brand-main rounded-64 text-white bg-brand-main">
-                        <h5>Masuk</h5>
+                      <button type="submit" class="btn btn-block btn-brand-secondary rounded-64 text-white bg-brand-secondary">
+                        <h5>Kirim</h5>
                       </button>
 
                       <!-- <a href="{{url('/dashboard')}}" class="btn btn-block" style="background-color: #F47500; color: #fff">Login</a> -->
@@ -63,6 +64,16 @@ $( document ).ready(function() {
     isPasswordShow = !isPasswordShow;
   })
 });
+
+function showModalSuccessRegister() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Buat Akun',
+    // text: 'Akun berhasil dibuat!',
+    showConfirmButton: false,
+    html:'<p>Akun berhasil dibuat!</p> <button onclick="Swal.close()" class="btn btn-block btn-brand-secondary rounded-64 text-white bg-brand-secondary"><h5>Oke</h5>'
+  })
+}
 
 </script>
 @endsection
