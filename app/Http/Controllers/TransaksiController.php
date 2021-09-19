@@ -69,7 +69,7 @@ class TransaksiController extends Controller
                 ->orderby('created_at', 'asc')
                 ->orwhere('kode_produk', 'like', '%' . $search . '%')
                 ->orwhere('nama', 'like', '%' . $search . '%')
-                // ->where('id_retailer', '=', Auth::user()->id_retailer)
+                ->where('id_retailer', '=', Auth::user()->id_retailer)
                 ->limit(5)
                 ->get();
         }

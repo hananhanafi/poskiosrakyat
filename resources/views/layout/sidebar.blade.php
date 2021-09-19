@@ -36,30 +36,83 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
-                    <ion-icon name="basket"></ion-icon>
-                    <p>
-                        Produk
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{{route('transaksi.index')}}" class="nav-link @yield('transaction_aktif')">
                     <ion-icon name="cart"></ion-icon>
                     <p>
                         Transaksi
+                        <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('transaksi.index')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Penjualan</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('transaksi.index')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Pembelian</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
+                    <ion-icon name="basket"></ion-icon>
+                    <p>
+                        Managemen
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    @if(Auth::guard('retailer')->check()) -->
+                    <li class="nav-item">
+                        <a href="{{url('/operator')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Operator Kasir</p>
+                        </a>
+                    </li>
+                    @endif
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('product.index')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Produk</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a href="{{url('report')}}" class="nav-link @yield('report_aktif')">
                     <ion-icon name="clipboard"></ion-icon>
                     <p>
                         Laporan
+                        <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('report')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Harian </p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('report')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Bulanan</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
-            @if(Auth::guard('retailer')->check())
+            <!-- @if(Auth::guard('retailer')->check())
             <li class="nav-item">
                 <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
                     <ion-icon name="people"></ion-icon>
@@ -68,15 +121,40 @@
                     </p>
                 </a>
             </li>
-            @endif
-            <!-- <li class="nav-item">
+            @endif -->
+            <li class="nav-item">
                 <a href="#" class="nav-link @yield('about_aktif')">
                     <ion-icon name="alert"></ion-icon>
                     <p>
-                        Tentang
+                        Pengaturan
+                        <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
-            </li> -->
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('profile/retailer')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Profil</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('report')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Struk Nota</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{url('report')}}" class="nav-link active">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Printer</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>

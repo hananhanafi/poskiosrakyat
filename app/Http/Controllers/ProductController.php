@@ -20,12 +20,12 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        // $produk = DB::table('retailer_produk')->where('id_retailer', Auth::user()->id_retailer)->get();
+        $produk = DB::table('retailer_produk')->where('id_retailer', Auth::user()->id_retailer)->get();
 
         // if ($request->expectsJson()) {
         //     return response()->json($produk);
         // }
-        $produk = DB::table('retailer_produk')->get();
+        // $produk = DB::table('retailer_produk')->get();
 
         if ($request->expectsJson()) {
             return response()->json($produk);
