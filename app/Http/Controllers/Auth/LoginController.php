@@ -86,14 +86,15 @@ class LoginController extends Controller
             'review' => ['Untuk saat ini Anda belum bisa masuk ke sistem, akun Anda sedang diperiksa oleh Admin']
         ]);
         // return $errors->first('review');
-
-            if(isset($user['reviewed_at'])) {
-                if (Auth::guard('retailer')->attempt(['username' => $request->username, 'password' => $request->password])) {
-                    return redirect()->intended('/dashboard')->with('alert-success', 'You are now logged in.');;
-                }
-            }else {
-                return redirect()->back()->withErrors($errors->first('review'));
+        if($user == '' || $user == null){
+            return redirect()->back()->withErrors($errors->first('password'));
+        }else if(isset($user['reviewed_at'])) {
+            if (Auth::guard('retailer')->attempt(['username' => $request->username, 'password' => $request->password])) {
+                return redirect()->intended('/dashboard')->with('alert-success', 'You are now logged in.');;
             }
+        }else {
+            return redirect()->back()->withErrors($errors->first('review'));
+        }
 
         return Redirect::back()->withErrors($errors->first('password'))->withInput($request->only('username'));
     }
