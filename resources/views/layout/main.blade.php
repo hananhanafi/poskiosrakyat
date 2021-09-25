@@ -43,8 +43,10 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            @yield('title')
+          <div class="col-sm-6 d-flex">
+            @yield('title') 
+            @auth('retailer') <h1 class="ml-2">| Pemilik Toko</h1> @endauth
+            @auth('retailer_operator') <h1 class="ml-2">| Kasir</h1> @endauth
           </div>
           @yield('navigation')
         </div>

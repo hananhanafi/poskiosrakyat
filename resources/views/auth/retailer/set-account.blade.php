@@ -5,7 +5,6 @@ Atur Akun | POS Kios Rakyat
 @endsection
 @section('card_content')
                 <p class="h6 mt-3 mb-4"><b>Atur Akun Anda</b></p>
-                <p>{{ $user->id_retailer }}</p>
                 @if ($error = $errors->first())
                   <div class="alert alert-danger">
                     {{ $error }}

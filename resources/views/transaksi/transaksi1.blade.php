@@ -1,5 +1,6 @@
 @extends('layout.main')
 @section('transaction_aktif', 'active')
+@section('penjualan_aktif', 'active')
 <link rel="stylesheet" type="text/css" href="{{asset('jqueryui/jquery-ui.min.css')}}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 

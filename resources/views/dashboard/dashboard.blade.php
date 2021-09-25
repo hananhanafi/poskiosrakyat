@@ -24,9 +24,72 @@
         {{ $alert }}
     </div>
 @endif
+
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
+
+            <div class="info-box-content">
+            <span class="info-box-text">Penjualan</span>
+            <span class="info-box-number">
+                Rp {{$sales}}
+            </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart text-white"></i></span>
+
+            <div class="info-box-content">
+            <span class="info-box-text">Pembelian</span>
+            <span class="info-box-number">
+                Rp 6.000.000
+            </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix hidden-md-up"></div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-heart"></i></span>
+
+            <div class="info-box-content">
+            <span class="info-box-text">Produk</span>
+            <span class="info-box-number">{{$products_count}} Item</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-friends"></i></span>
+
+            <div class="info-box-content">
+            <span class="info-box-text">Operator Kasir</span>
+            <span class="info-box-number">{{$operators_count > 0 ? $operators_count.' Orang' : '-' }}</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+</div>
 <div class="card">
     <div class="card-body">
-    <div class="form-group">
+    <!-- <div class="form-group">
         <form action="" method="get" id="form_filter" autocomplete="off">
         <div class="input-group">
             <div class="input-group-prepend">
@@ -38,13 +101,13 @@
             <button type="submit" class="btn btn-success btn-sm">Filter</button>
         </div>
         </form>
-    </div>
+    </div> -->
 
     <!-- Small boxes (Start box) -->
     <div class="row">
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <!-- <div class="small-box bg-info">
                 <div class="inner">
                     <h3>Rp {{number_format($mean,2,',',".")}}</h3>
                     <p>Rata-rata Transaksi</p>
@@ -52,12 +115,12 @@
                 <div class="icon">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <!-- <div class="small-box bg-success">
                 <div class="inner">
                     <h3>{{$count}}</h3>
                     <p>Penjualan</p>
@@ -65,14 +128,14 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- AREA CHART -->
     <div class="card-body">
         <div class="chart">
             <canvas id="areaChart"
-                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                style="min-height: 400px; height: 400px; max-height: 400px; max-width: 100%;"></canvas>
         </div>
     </div>
     <!-- /.card -->
@@ -110,62 +173,45 @@
     // })
 </script>
 <script>
-    $(function () {
+    $( document ).ready(function() {
+        
+        const months_name = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus','September','Oktober', 'November', 'Desember'];
         var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
         var areaChartData = {
-            // labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus','September','Oktober', 'November', 'Desember'],
-            labels: [
-                <?php foreach ($chart_data as $cd):
-                    $bln = explode('-', $cd['y']);
-                    if($bln[1] == 1) { ?>
-                        '<?php echo "Januari";?>' <?php
-                    } else if($bln[1] == 2) { ?>
-                        '<?php echo "Februari";?>' <?php
-                    } else if($bln[1] == 3) { ?>
-                        '<?php echo "Maret";?>' <?php
-                    } else if($bln[1] == 4) { ?>
-                        '<?php echo "April";?>' <?php
-                    } else if($bln[1] == 5) { ?>
-                        '<?php echo "Mei";?>' <?php
-                    } else if($bln[1] == 6) { ?>
-                        '<?php echo "Juni";?>' <?php
-                    } else if($bln[1] == 7) { ?>
-                        '<?php echo "Juli";?>' <?php
-                    } else if($bln[1] == 8) { ?>
-                        '<?php echo "Agustus";?>' <?php
-                    } else if($bln[1] == 9) { ?>
-                        '<?php echo "September";?>' <?php
-                    } else if($bln[1] == 10) { ?>
-                        '<?php echo "Oktober";?>' <?php
-                    } else if($bln[1] == 11) { ?>
-                        '<?php echo "November";?>' <?php
-                    } else if($bln[1] == 12) { ?>
-                        '<?php echo "Desember";?>' <?php
-                    } ?>,
-                <?php endforeach ?>
-            ],
+            labels: months_name,
             datasets: [
                 {
-                    label: 'Total Penjualan',
-                    backgroundColor: 'rgba(60,141,188,0.9)',
-                    borderColor: 'rgba(60,141,188,0.8)',
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(60,141,188,1)',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(60,141,188,1)',
-                    // data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, {{$count}}]
-                    data: [
-                        <?php foreach ($chart_data as $cd): ?>
-                            <?php echo $cd['a']?>,
-                        <?php endforeach ?>
-                    ],
+                    label: 'Tahun Ini',
+                    backgroundColor: '#007BFF',
+                    borderColor: '#007BFF',
+                    // pointRadius: false,
+                    // pointColor: '#3b8bba',
+                    // pointStrokeColor: 'rgba(60,141,188,1)',
+                    // pointHighlightFill: '#fff',
+                    // pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    // data: [
+                    //     <?php for ($i=0;$i<12;$i++): ?>
+                    //     <?php endfor ?>
+                    // ]
+                },
+                {
+                    label: 'Tahun Lalu',
+                    backgroundColor: '#CED4DA',
+                    borderColor: '#CED4DA',
+                    // pointRadius: false,
+                    // pointColor: '#3b8bba',
+                    // pointStrokeColor: 'rgba(60,141,188,1)',
+                    // pointHighlightFill: '#fff',
+                    // pointHighlightStroke: 'rgba(60,141,188,1)',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
             ]
         }
 
         var areaChartOptions = {
             maintainAspectRatio: false,
+            // aspectRatio: 10,
             responsive: true,
             legend: {
                 display: false
@@ -187,6 +233,15 @@
                             display: false,
                         },
                 }]
+            },
+            legend: {
+                display: true,
+                labels: {
+                    color: 'rgb(255, 99, 132)',
+                    boxWidth: 14,
+                    // boxHeight: 40
+                },
+                position: 'bottom',
             }
         }
 
@@ -195,6 +250,34 @@
             data: areaChartData,
             options: areaChartOptions
         })
-    })
+        // updateChart()
+        
+        const currentYear = new Date().getFullYear();
+        var chartData = [<?php foreach ($chart_data as $cd): ?>
+                            <?php echo json_encode($cd)?>,
+                        <?php endforeach ?>]
+        chartData.forEach(data=> {
+            var indexChartData,indexDataSet
+
+            dateSplit = data.date.split('-');
+            if(dateSplit[1]<10){
+                indexChartData = dateSplit[1][1]-1
+            }else{
+                indexChartData = dateSplit[1]-1
+            }
+            if(dateSplit[0]<currentYear){
+                indexDataSet = 1;
+            }else {
+                indexDataSet = 0;
+            }
+            console.log("indexDataSet",indexDataSet)
+            console.log("indexChartData",indexChartData)
+            // console.log("areach",areaChart.data)
+            areaChartData.datasets[indexDataSet].data[indexChartData] = data.amount;
+            
+        })
+        areaChart.update();
+
+    });
 </script>
 @endsection
