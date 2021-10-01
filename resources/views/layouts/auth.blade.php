@@ -41,12 +41,12 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="{{url('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{secure_url('adminlte/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{secure_url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="{{url('adminlte/dist/js/adminlte.min.js')}}"></script>
-    <script src="{{url('adminlte/dist/js/sweetalert2.min.js')}}"></script>
+    <script src="{{secure_url('adminlte/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{secure_url('adminlte/dist/js/sweetalert2.min.js')}}"></script>
     <script>
         const button_loading = '<div class="spinner-border text-dark" role="status"> <span class="sr-only">Loading...</span></div>'
     </script>
