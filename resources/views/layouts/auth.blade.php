@@ -31,7 +31,7 @@
         <div class="login-box">
             <!-- /.login-logo -->
             <div class="mb-4 text-center">
-                <img src="{{url('img/logo.png')}}" alt="ICON+ Logo" class="brand-image">
+                <img src="{{secure_url('img/logo.png')}}" alt="ICON+ Logo" class="brand-image">
             </div>
             <div class="card card-outline shadow-main border-16 color-text ">
                 <div class="card-body text-center">
