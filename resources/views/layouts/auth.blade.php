@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('img/logokiosrakyat.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{secure_url('img/logokiosrakyat.png')}}">
     <title>@yield('page_title','POS KiosRakyat')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +14,13 @@
     <!-- Google Font : Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{secure_url('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{url('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{secure_url('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('adminlte/dist/css/adminlte.min.css')}}">
-    <link rel="stylesheet" href="{{url('adminlte/dist/css/sweetalert2.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/custom.css')}}">
+    <link rel="stylesheet" href="{{secure_url('adminlte/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{secure_url('adminlte/dist/css/sweetalert2.min.css')}}">
+    <link rel="stylesheet" href="{{secure_url('css/custom.css')}}">
 
     @yield('css')
 
