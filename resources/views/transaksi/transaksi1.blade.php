@@ -46,22 +46,22 @@
                                     <div class="form-group row">
                                         <label for="hargajual" class="col-sm-6 col-form-label">Harga Jual</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="hargajual" id="hargajual">
+                                            <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="foto" class="col-sm-6 col-form-label">Foto Produk</label>
                                         <div class="col-sm-6">
                                             {{-- <input type="text" class="form-control" name="foto" id="foto"> --}}
                                             <img src="" id="foto" style="width: 150px;">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label for="hargadiskon" class="col-sm-6 col-form-label">Harga Setelah Diskon</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="hargadiskon" id="hargadiskon">
+                                            <input type="text" class="form-control" name="hargadiskon" id="hargadiskon" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -70,12 +70,12 @@
                                             <input type="number"  min='1' class="form-control" name="jumlah" id="jumlah">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="deskripsiproduk" class="col-sm-6 col-form-label">Deskripsi Produk</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="deskripsiproduk" id="deskripsiproduk">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

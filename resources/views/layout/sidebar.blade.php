@@ -31,8 +31,7 @@
                 <a href="{{route('dashboard.index')}}" class="nav-link @yield('dashboard_aktif')">
                     <ion-icon name="home"></ion-icon>
                     <p>
-                        Dashboard
-                    </p>
+                        Dashboard</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -46,7 +45,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{route('transaksi.index')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Penjualan</p>
                         </a>
                     </li>
@@ -54,7 +53,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{route('transaksi.index')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Pembelian</p>
                         </a>
                     </li>
@@ -72,7 +71,7 @@
                     @if(Auth::guard('retailer')->check()) -->
                     <li class="nav-item">
                         <a href="{{url('/operator')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Operator Kasir</p>
                         </a>
                     </li>
@@ -81,7 +80,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{route('product.index')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Produk</p>
                         </a>
                     </li>
@@ -98,7 +97,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Harian </p>
                         </a>
                     </li>
@@ -106,7 +105,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Bulanan</p>
                         </a>
                     </li>
@@ -124,7 +123,7 @@
             @endif -->
             <li class="nav-item">
                 <a href="#" class="nav-link @yield('about_aktif')">
-                    <ion-icon name="alert"></ion-icon>
+                    <ion-icon name="cog"></ion-icon>
                     <p>
                         Pengaturan
                         <i class="right fas fa-angle-left"></i>
@@ -133,7 +132,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('profile/retailer')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Profil</p>
                         </a>
                     </li>
@@ -141,7 +140,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Struk Nota</p>
                         </a>
                     </li>
@@ -149,7 +148,7 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link active">
-                            <i class="far fa-circle nav-icon"></i>
+                            <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Printer</p>
                         </a>
                     </li>
