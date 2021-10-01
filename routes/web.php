@@ -38,7 +38,7 @@ Route::get('/retailer/not-register', [RegisterController::class, 'showRetailerNo
 Route::post('/retailer/register/phone', [RegisterController::class, 'retailerPhoneAuth']);
 Route::get('/retailer/otp-verified', [RegisterController::class, 'retailerVerifiedOTP']);
 
-// Route::post('/retailer/register', [RegisterController::class, 'createRetailer']);
+Route::post('/retailer/register', [RegisterController::class, 'createRetailer']);
 Route::post('/retailer/set-user', [RegisterController::class, 'createRetailer']);
 
 // Route::get('/login-otp', [LoginController::class, 'loginOtp']);
