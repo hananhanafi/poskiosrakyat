@@ -21,7 +21,8 @@
         "livewire/livewire": "^2.0",
         "nwidart/laravel-modules": "^8.0",
         "orangehill/iseed": "^2.6",
-        "reliese/laravel": "^0.0.18"
+        "reliese/laravel": "^0.0.18",
+        "fakerphp/faker": "^1.9.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
