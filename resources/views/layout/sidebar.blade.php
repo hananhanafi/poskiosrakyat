@@ -1,6 +1,6 @@
 <a href="{{url('/')}}" class="brand-link" style="background-color: #fff">
     <img src="{{url('img/logokiosrakyat.png')}}" alt="Logo" class="brand-image img-circle" style="opacity: .8">
-    <span class="brand-text font-weight-light" style="color: #000"><b>POS KiosRakyat</b></span>
+    <span class="brand-text font-weight-light" style="color: #000"><b>POS Kirana</b></span>
 </a>
 
 <div class="sidebar">
@@ -52,7 +52,7 @@
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('transaksi.index')}}" class="nav-link active">
+                        <a href="#" class="nav-link active">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Pembelian</p>
                         </a>
@@ -139,7 +139,7 @@
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('report')}}" class="nav-link active">
+                        <a href="#" class="nav-link active">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Struk Nota</p>
                         </a>
@@ -147,7 +147,7 @@
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('report')}}" class="nav-link active">
+                        <a href="#" class="nav-link active">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Printer</p>
                         </a>

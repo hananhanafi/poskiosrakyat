@@ -1,1 +1,1 @@
-<strong>Copyright &copy; 2020 <a href="http://kiosrakyat.id/">POS KiosRakyat</a></strong>
+<strong>Copyright &copy; 2021 <a href="http://kiosrakyat.id/">POS Kirana</a></strong>
