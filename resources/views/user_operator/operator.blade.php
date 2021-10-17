@@ -25,54 +25,59 @@
 <div class="container-fluid">
 	<div class="row">
     	<div class="col-12">
-			<div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Tabel Kasir</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-              	<a href="{{url('/operator/create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Kasir</a>
-                  <thead>
-                  <tr>
-                    <th width="5%">No.</th>
-                    <th>Nama</th>
-                    <th>Username</th>
-                    <th>Kata Sandi</th>
-                    <th width="15%">Aksi</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    @foreach ($data as $value => $row)
-                    <td align="center">{{$value+1}}</td>
-                    <td>{{$row['nama']}}</td>
-                    <td>{{$row['username']}}</td>
-                    <td>********</td>
-                    <td>
-                    	<a href="{{url('/operator/show/'.$row['id_retailer_operator'])}}" class="btn btn-outline-success btn-sm"><i class="fas fa-eye"></i></a>
-
-                    	<a href="{{url('/operator/edit/'.$row['id_retailer_operator'])}}" class="btn btn-outline-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-
-                    	<button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-hapus{{$row['id_retailer_operator']}}" id="hapus-operator"><i class="fa fa-trash"></i></button>
-                    </td>
-                  </tr>
-                  @endforeach
-                  </tbody>
-                  <tfoot>
-                  <!-- <tr>
-                    <th width="5%">No.</th>
-                    <th>Nama</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th width="15%">Aksi</th>
-                  </tr> -->
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Tabel Kasir</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="mb-3">
+              <!-- <a href="{{url('/operator/create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Kasir</a> -->
+              <a href="{{url('/operator/create')}}" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">
+              <i class="fas fa-plus"></i> Tambah Kasir
+              </a>
             </div>
-            <!-- /.card -->
+            <table id="operator-table" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th width="5%">No.</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th width="15%">Aksi</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                @foreach ($data as $value => $row)
+                <td align="center">{{$value+1}}</td>
+                <td>{{$row['nama']}}</td>
+                <td>{{$row['username']}}</td>
+                <td>********</td>
+                <td>
+                  <a href="{{url('/operator/show/'.$row['id_retailer_operator'])}}" class="btn btn-outline-success btn-sm m-1"><i class="fas fa-eye"></i></a>
+
+                  <a href="{{url('/operator/edit/'.$row['id_retailer_operator'])}}" class="btn btn-outline-warning btn-sm m-1"><i class="fas fa-pencil-alt"></i></a>
+
+                  <button type="button" class="btn btn-outline-danger btn-sm m-1" data-toggle="modal" data-target="#modal-hapus{{$row['id_retailer_operator']}}" id="hapus-operator"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+              @endforeach
+              </tbody>
+              <tfoot>
+              <!-- <tr>
+                <th width="5%">No.</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th width="15%">Aksi</th>
+              </tr> -->
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
     	</div>
 	</div>
 </div>
@@ -123,12 +128,32 @@
 	<!-- Page specific script -->
 	<script>
 	  $(function () {
-	    $("#example1").DataTable({
+	    $("#operator-table").DataTable({
 	      "responsive": true, 
-	      "lengthChange": false, 
+	      "lengthChange": true, 
 	      "autoWidth": false,
+        "paging":   true,
+        "ordering": false,
+        "info":     true
 	      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-	    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');	  });
+	    })
+      // .buttons().container().appendTo('#operator-table_wrapper .col-md-6:eq(0)');	  
+    });
+
+      
+    // $("#example1").DataTable({
+    //   "responsive": true, "lengthChange": true, "autoWidth": true,
+    //   "buttons": ["excel", "pdf", "colvis"]
+    // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    // $('#example2').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": false,
+    //   "responsive": true,
+    // });
 	</script>
 
   <script type="text/javascript">

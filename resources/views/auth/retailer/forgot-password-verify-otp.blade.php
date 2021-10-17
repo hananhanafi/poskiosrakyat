@@ -38,7 +38,7 @@ Lupa Password - Verifikasi OTP | POS Kios Rakyat
                     <div class="row">
                         <div class="col-12">
                         <button type="submit" class="btn btn-block btn-brand-secondary rounded-64 text-white bg-brand-secondary">
-                            <h5>Kirim</h5>
+                            <h5>Lanjut</h5>
                         </button>
 
                         <!-- <a href="{{url('/dashboard')}}" class="btn btn-block" style="background-color: #F47500; color: #fff">Login</a> -->
@@ -46,7 +46,7 @@ Lupa Password - Verifikasi OTP | POS Kios Rakyat
                         <!-- /.col -->
                     </div>
                 </form>
-                <p>Tidak menerima OTP?</p>
+                <p>Tidak menerima kode OTP?</p>
                 <a href="{{url('')}}" class="btn text-primary">
                     Kirim ulang kode
                 </a>

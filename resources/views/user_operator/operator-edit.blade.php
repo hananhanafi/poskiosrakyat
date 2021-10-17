@@ -22,11 +22,11 @@
 <!-- Main content -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-7">
+    <div class="col-12">
       <!-- Horizontal Form -->
-      <div class="card card-info">
+      <div class="card card">
         <div class="card-header">
-          <h3 class="card-title">Ubah Data Petugas Kasir</h3>
+          <h3 class="card-title">Ubah Petugas Kasir</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -35,30 +35,43 @@
           <div class="card-body">
             @foreach ($data as $value => $row)
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Nama</label>
-              <div class="col-sm-9">
+              <label for="nama" class="col-sm-2 col-form-label">Nama Operator</label>
+              <div class="col-sm-4">
                 <input type="hidden" class="form-control" id="nama" placeholder="Nama" value="{{$row['id_retailer_operator']}}" name="id_retailer_operator">
-                <input type="text" class="form-control" id="nama" placeholder="Nama" value="{{$row['nama']}}" name="nama">
+                <input type="text" class="form-control" id="nama" value="{{$row['nama']}}" name="nama">
               </div>
             </div>
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Username</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="nama" placeholder="Username" value="{{$row['username']}}" name="username">
+              <label for="nama" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="nama" value="{{$row['username']}}" name="username">
               </div>
             </div>
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Kata Sandi</label>
-              <div class="col-sm-9">
-                <button type="button" class="btn btn-secondary btn-sm" id="sandi" data-toggle="modal" data-target="#editModal">Ubah Kata Sandi</button>
+              <label for="nama" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-4">
+                <!-- <button type="button" class="btn btn-brand-main btn-sm" id="sandi" data-toggle="modal" data-target="#editModal">Ubah Password</button> -->
+                <button type="button" class="btn  btn-brand-main btn-sm bg-brand-main text-white rounded-8 no-shadow" id="sandi" data-toggle="modal" data-target="#editModal">
+                  Ubah Password
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">
+                  Ubah
+                </button>
+                <!-- <button type="submit" class="btn btn-sm btn-primary">Tambah</button> -->
+                <a class="btn btn-outline-danger rounded-8" onclick="location.href='{{url('operator')}}'">Batal</a>
               </div>
             </div>
           </div>
           <!-- /.card-body -->
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
             <a class="btn btn-danger btn-sm" onclick="location.href='{{url('/operator')}}'">Batal</a>
-          </div>
+          </div> -->
           <!-- /.card-footer -->
           @endforeach
         </form>

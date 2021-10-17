@@ -22,10 +22,11 @@
 <!-- Main content -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-7">
-      <div class="card card-info">
+    <div class="col-12">
+      <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Toko {{ Auth::user()->nama_toko }}</h3>
+          <!-- <h3 class="card-title">Toko {{ Auth::user()->nama_toko }}</h3> -->
+          <h3 class="card-title">Tambah Operator Kasir</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -34,35 +35,44 @@
           <div class="card-body">
             <input type="hidden" class="form-control" id="id_retailer" name="id_retailer" value="{{ Auth::user()->id_retailer }}">
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Nama</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="nama" name="name" placeholder="Nama" required>
+              <label for="nama" class="col-sm-2 col-form-label">Nama Operator</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="nama" name="name" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Username</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="nama" name="username" placeholder="Username" required>
+              <label for="nama" class="col-sm-2 col-form-label">Username</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="nama" name="username" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="nama" class="col-sm-3 col-form-label">Kata Sandi</label>
-              <div class="col-sm-9">
-                <input type="Password" class="form-control" id="nama" name="password" placeholder="Kata Sandi" required>
+              <label for="nama" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-4">
+                <input type="Password" class="form-control" id="nama" name="password" required>
               </div>
             </div>
             <div class="form-group row">
-              <label for="password_confirmation" class="col-sm-3 col-form-label">Konfirmasi Kata Sandi</label>
-              <div class="col-sm-9">
-                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi Kata Sandi">
+              <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+              <div class="col-sm-4">
+                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">
+                  Tambah
+                </button>
+                <a class="btn btn-outline-danger rounded-8" onclick="location.href='{{url('operator')}}'">Batal</a>
               </div>
             </div>
           </div>
           <!-- /.card-body -->
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
             <a class="btn btn-danger btn-sm" onclick="location.href='{{url('/operator')}}'">Batal</a>
-          </div>
+          </div> -->
           <!-- /.card-footer -->
         </form>
       </div>

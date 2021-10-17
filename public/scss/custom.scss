@@ -40,6 +40,9 @@ html, body, * {
 .rounded-64 {
     border-radius: 64px !important;
 }
+.rounded-8 {
+    border-radius: 8px !important;
+}
 
 .btn-brand-main {
     border-radius: 3px;
@@ -56,6 +59,13 @@ html, body, * {
     
     h5 {
         margin-bottom: 0;
+    }
+    
+    &.btn-sm {
+        height: auto;
+        min-width: 40px;
+        font-size: 16px;
+        padding: 6px 12px;
     }
 }
 .btn-brand-secondary {
@@ -74,6 +84,16 @@ html, body, * {
     h5 {
         margin-bottom: 0;
     }
+
+    &.btn-sm {
+        height: auto;
+        min-width: 40px;
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+}
+.no-shadow{
+    box-shadow: none;
 }
 .login-box {
     width:480px;

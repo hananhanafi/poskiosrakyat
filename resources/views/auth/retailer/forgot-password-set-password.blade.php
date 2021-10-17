@@ -15,7 +15,7 @@ Lupa Password - Atur Akun | POS Kios Rakyat
                   @csrf
                   <input type="hidden" class="form-control" id="nama" placeholder="Nama" value="{{$user->id_retailer}}" name="id_retailer">
                   <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Masukkan Password" id="password" name="password" required>
+                    <input type="password" class="form-control" placeholder="Masukkan Password Baru" id="password" name="password" required>
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@ Lupa Password - Atur Akun | POS Kios Rakyat
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Masukkan ulang password" id="password_confirmation" name="password_confirmation" required>
+                    <input type="password" class="form-control" placeholder="Masukkan Ulang Password" id="password_confirmation" name="password_confirmation" required>
                     @error('password_confirmation')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -46,7 +46,7 @@ Login Pemilik Kios | POS Kios Rakyat
                 </form>
                 
                 <a href="{{url('/retailer/forgot-password')}}" class="btn text-primary">
-                    Lupa Password
+                    Lupa Password?
                 </a>
                 <div class="my-2 d-flex">
                     <div class="border m-auto" style="height:0;width:32%"></div>
