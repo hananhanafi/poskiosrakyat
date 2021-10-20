@@ -24,13 +24,13 @@
             <div class="card-body row" align="right">
               <div class="col-md-6"></div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-edit-akun" id="edit-akun" style="background-color: #F47500;color: #fff">Ubah Info Akun</button>
+                <button type="button" class="btn  btn-brand-main btn-sm bg-brand-main text-white rounded-8 no-shadow" data-toggle="modal" data-target="#modal-edit-akun" id="edit-akun">Ubah Info Akun</button>
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-edit-kios" id="edit-kios" style="background-color: #F47500;color: #fff">Ubah Info Toko</button>
+                <button type="button" class="btn  btn-brand-main btn-sm bg-brand-main text-white rounded-8 no-shadow" data-toggle="modal" data-target="#modal-edit-kios" id="edit-kios">Ubah Info Toko</button>
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-edit-pass" id="edit-pass" style="background-color: #F47500;color: #fff">Ubah Kata Sandi</button>
+                <button type="button" class="btn  btn-brand-main btn-sm bg-brand-main text-white rounded-8 no-shadow" data-toggle="modal" data-target="#modal-edit-pass" id="edit-pass">Ubah Kata Sandi</button>
               </div>
             </div>
           </div>
