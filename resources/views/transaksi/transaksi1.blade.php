@@ -80,8 +80,7 @@
                             </div>
                         </div>
                         <div class="card-footer" style="background-color: #fff">
-                            <button type="button" id="addcart" class="btn btn-sm btn-info float-right">[F9] -
-                                Tambah</button>
+                            <button type="button" id="addcart" class="btn btn-sm btn-info float-right">Tambah (F9)</button>
                         </div>
                     </form>
                 </div>
@@ -212,14 +211,14 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="col-md-6">
-                        <a type="button" class="btn btn-block bg-gradient-warning btn-flat" href="{{url('/batal')}}"
-                            id="batal">[F5] - Batal</a>
-                        <br>
-                    </div>
                     <div class="col-md-8">
-                        <button type="submit" class="btn btn-block bg-gradient-success btn-flat"
-                            id="bayar">[Enter] - Proses Bayar</button>
+                        <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"     
+                                id="bayar">Proses Bayar (Enter)</button>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                        <a type="button" class="btn btn-outline-danger rounded-8" href="{{url('/batal')}}"
+                            id="batal">Batal (F5)</a>
                     </div>
                 </div>
             </form>
