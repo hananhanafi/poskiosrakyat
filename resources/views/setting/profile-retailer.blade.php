@@ -43,7 +43,8 @@
             </div>
             <div class="card-body row" style="font-size:16px;">
               <div class="col-sm-2 text-center">
-                <img src="{{url($row['file_foto_depan'])}}" alt="Your Profile Image" class="avatar img-circle img-thumbnail" style="margin-bottom:10px; width:140px; height:140px;">
+                <!-- <img src="{{url($row['file_foto_depan'])}}" alt="Your Profile Image" class="avatar img-circle img-thumbnail" style="margin-bottom:10px; width:140px; height:140px;"> -->
+                <img src="{{url('img/avatar.png')}}" alt="Your Profile Image" class="avatar img-circle img-thumbnail" style="margin-bottom:10px; width:140px; height:140px;">
               </div>
               <div class="col-sm-10">
                   <div class="form-group row">
@@ -152,8 +153,8 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">Simpan</button>
+                    <button type="button" class="btn btn-outline-danger rounded-8" data-dismiss="modal">Batal</button>
                   </div>
                 </div>
               </div>
@@ -205,8 +206,8 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">Simpan</button>
+                    <button type="button" class="btn btn-outline-danger rounded-8" data-dismiss="modal">Batal</button>
                   </div>
                 </div>
               </div>
@@ -259,8 +260,8 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow">Simpan</button>
+                    <button type="button" class="btn btn-outline-danger rounded-8" data-dismiss="modal">Batal</button>
                   </div>
                 </div>
               </div>

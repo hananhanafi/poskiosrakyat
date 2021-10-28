@@ -47,8 +47,8 @@
                     <td>{{date('H:i:s',strtotime($data->tanggal))}}</td>
                     <td>{{$data->nama}}</td>
                     <td style="text-align: center;">
-                        <a href="{{ url('transaksi/print/'.$data->kode_pesanan) }}" target="_blank" class="btn btn-info btn-sm"><i class="fas fa-print"></i></a>
-                        {{-- <button type="button" class="btn btn-outline-warning btn-sm" id="nomor_transaksi" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button> --}}
+                        <a href="{{ url('transaksi/print/'.$data->kode_pesanan) }}" target="_blank" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"><i class="fas fa-print"></i> Print</a>
+                        {{-- <button type="button" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"  id="nomor_transaksi" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button> --}}
                     </td>
                 </tr>
                 @php
