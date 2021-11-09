@@ -35,8 +35,8 @@
                         Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{route('transaksi.index')}}" class="nav-link @yield('transaction_aktif')">
+            <li class="nav-item  @yield('transaction_menu_open')">
+                <a class="nav-link @yield('transaction_aktif')">
                     <ion-icon name="cart"></ion-icon>
                     <p>
                         Transaksi
@@ -45,23 +45,21 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('transaksi.index')}}" class="nav-link active">
+                        <a href="{{route('transaksi.index')}}" class="nav-link @yield('penjualan_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Penjualan</p>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link @yield('pembelian_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Pembelian</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
+            <li class="nav-item @yield('management_menu_open')">
+                <a class="nav-link @yield('management_aktif')">
                     <ion-icon name="basket"></ion-icon>
                     <p>
                         Managemen
@@ -69,26 +67,24 @@
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
-                    @if(Auth::guard('retailer')->check()) -->
+                    @if(Auth::guard('retailer')->check())
                     <li class="nav-item">
-                        <a href="{{url('/operator')}}" class="nav-link active">
+                        <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Operator Kasir</p>
                         </a>
                     </li>
                     @endif
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('product.index')}}" class="nav-link active">
+                        <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Produk</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="{{url('report')}}" class="nav-link @yield('report_aktif')">
+            <li class="nav-item @yield('report_menu_open')">
+                <a class="nav-link @yield('report_aktif')">
                     <ion-icon name="clipboard"></ion-icon>
                     <p>
                         Laporan
@@ -97,15 +93,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('report')}}" class="nav-link active">
+                        <a href="{{url('report')}}" class="nav-link @yield('harian_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Harian </p>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('report')}}" class="nav-link active">
+                        <a href="{{url('report')}}" class="nav-link @yield('bulanan_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Bulanan</p>
                         </a>
@@ -122,8 +116,8 @@
                 </a>
             </li>
             @endif -->
-            <li class="nav-item">
-                <a href="#" class="nav-link @yield('about_aktif')">
+            <li class="nav-item @yield('setting_menu_open')">
+                <a href="#" class="nav-link @yield('setting_aktif')">
                     <ion-icon name="cog"></ion-icon>
                     <p>
                         Pengaturan
@@ -132,23 +126,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('profile/retailer')}}" class="nav-link active">
+                        <a href="{{url('profile/retailer')}}" class="nav-link  @yield('profil_aktif')">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Profil</p>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Struk Nota</p>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link">
                             <!-- <i class="far fa-circle nav-icon"></i> -->
                             <p>Printer</p>
                         </a>

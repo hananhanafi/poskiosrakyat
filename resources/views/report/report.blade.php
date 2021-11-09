@@ -1,5 +1,7 @@
 @extends('layout.main')
+@section('report_menu_open', 'menu-is-opening menu-open')
 @section('report_aktif', 'active')
+@section('harian_aktif', 'active')
 
 @section('navigation')
 <div class="col-sm-6">

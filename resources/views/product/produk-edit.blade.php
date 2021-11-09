@@ -1,6 +1,7 @@
 @extends('layout.main')
+@section('management_menu_open', 'menu-is-opening menu-open')
+@section('management_aktif', 'active')
 @section('product_aktif', 'active')
-
 @section('navigation')
   <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">

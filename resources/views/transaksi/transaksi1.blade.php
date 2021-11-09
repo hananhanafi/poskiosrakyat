@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('transaction_menu_open', 'menu-is-opening menu-open')
 @section('transaction_aktif', 'active')
 @section('penjualan_aktif', 'active')
 <link rel="stylesheet" type="text/css" href="{{asset('jqueryui/jquery-ui.min.css')}}">
