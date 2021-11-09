@@ -1,6 +1,6 @@
-<a href="{{url('/')}}" class="brand-link" style="background-color: #fff">
-    <img src="{{url('img/logokiosrakyat.png')}}" alt="Logo" class="brand-image img-circle" style="opacity: .8">
-    <span class="brand-text font-weight-light" style="color: #000"><b>POS Kirana</b></span>
+<a class="brand-link" style="background-color: #fff; height: 54px;">
+    <img src="{{url('img/logo.png')}}" alt="Logo" class="brand-image" style="opacity: .8">
+    <!-- <span class="brand-text font-weight-light" style="color: #000"><b>P</b></span> -->
 </a>
 
 <div class="sidebar">
