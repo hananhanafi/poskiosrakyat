@@ -71,17 +71,11 @@
                                             <input type="number"  min='1' class="form-control" name="jumlah" id="jumlah">
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
-                                        <label for="deskripsiproduk" class="col-sm-6 col-form-label">Deskripsi Produk</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="deskripsiproduk" id="deskripsiproduk">
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer" style="background-color: #fff">
-                            <button type="button" id="addcart" class="btn btn-sm btn-info float-right">Tambah (F9)</button>
+                        <div class="card-footer" style="background-color: #fff" align="right">
+                            <button type="button" id="addcart" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow right">Tambah (F9)</button>
                         </div>
                     </form>
                 </div>
