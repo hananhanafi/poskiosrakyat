@@ -28,11 +28,11 @@
           <th>No</th>
           <th>Kode Produk</th>
           <th>Nama Produk</th>
-          <th>Deskripsi Produk</th>
+          <th>Harga/Produk</th>
+          <!-- <th>Deskripsi Produk</th> -->
+          <th>Stok</th>
           <th>Foto</th>
-          <th>Stok</th>
-          <th>Harga</th>
-          <th>Stok</th>
+          <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -45,11 +45,11 @@
           <td>{{$no}}</td>
           <td>{{$data->kode_produk}}</td>
           <td>{{$data->nama}}</td>
-          <td>{{$data->deskripsi_produk}}</td>
-          <td><img src='{{$data->foto}}'></td>
-          <!-- <td><img src='img/{{$data->foto}}'></td> -->
-          <td>{{$data->stok}}</td>
           <td>Rp {{number_format($data->harga_jual,0,".",".")}}</td>
+          <td>{{$data->stok}}</td>
+          <!-- <td>{{$data->deskripsi_produk}}</td> -->
+          <td><img src="{{$data->foto ? "$data->foto" : url('img/gambar.jpg') }}" style="max-width:40px"></td>
+          <!-- <td><img src='img/{{$data->foto}}'></td> -->
           <td style="text-align: center;">
               <a href="{{route('product.stock.show', $data->id_retailer_produk)}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
               <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#modal-tambah-stok-produk-{{$data->id_retailer_produk}}" id="modal-tambah-stok-produk-{{$data->id_retailer_produk}}" data-toggle="modal" data-target="#tambahModal"><i class="fas fa-plus"></i></button>
@@ -131,19 +131,27 @@
 @section('js')
 <script>
   $(function () {
+    // $("#example1").DataTable({
+    //   "responsive": true, 
+    //   "lengthChange": false, 
+    //   "autoWidth": true,
+    //   "paging":   true,
+    //   "ordering": false,
+    //   "info":     true
+    //   // "buttons": ["excel", "pdf", "colvis"]
+    // })
+    // .buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+    
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": true,
-      "buttons": ["excel", "pdf", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
+	      "responsive": true, 
+	      "lengthChange": true, 
+	      "autoWidth": false,
+        "paging":   true,
+        "ordering": false,
+        "info":     true
+	      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+	    })
   });
 
 

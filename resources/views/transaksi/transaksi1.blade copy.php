@@ -21,21 +21,21 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <!-- Horizontal Form -->
-                <div class="card">
+                <div class="card card-light">
                     <!-- form start -->
-                    <div class="card-header text-lg py-4">
+                    <div class="card-header">
                         <h4><b>Pencarian Barang</b></h4>
                     </div>
-                    <form class="form-horizontal mb-0" method="POST" action="{{ url('/insert_cart') }}">
+                    <form class="form-horizontal" method="POST" action="{{ url('/insert_cart') }}">
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6 fas fa-barcode">
                                     <div class="form-group row">
-                                        <label for="namabarang" class="colcol-form-label">Kode/Nama Barang</label>
-                                        <div class="col">
+                                        <label for="namabarang" class="col-sm-6 col-form-label">Kode/Nama Barang</label>
+                                        <div class="col-sm-6">
                                             <input type="hidden" class="form-control" name="idretailerproduk"
                                                 id="idretailerproduk">
                                             <input type="hidden" class="form-control" name="kode_produk"
@@ -44,12 +44,12 @@
                                                 autofocus>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
+                                    <div class="form-group row">
                                         <label for="hargajual" class="col-sm-6 col-form-label">Harga Jual</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <!-- <div class="form-group row">
                                         <label for="foto" class="col-sm-6 col-form-label">Foto Produk</label>
                                         <div class="col-sm-6">
@@ -58,20 +58,17 @@
                                         </div>
                                     </div> -->
                                 </div>
-                                <div class="col-md-5">
-                                    <!-- <div class="form-group row">
+                                <div class="col-md-6">
+                                    <div class="form-group row">
                                         <label for="hargadiskon" class="col-sm-6 col-form-label">Harga Setelah Diskon</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargadiskon" id="hargadiskon" readonly>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="form-group row">
-                                        <label for="jumlah" class="pl-4 col-form-label text-right">Jumlah Beli</label>
-                                        <div class="col-2">
+                                        <label for="jumlah" class="col-sm-6 col-form-label">Jumlah</label>
+                                        <div class="col-sm-6">
                                             <input type="number"  min='1' class="form-control" name="jumlah" id="jumlah">
-                                        </div>
-                                        <div class="col-4">
-                                            <button type="button" id="addcart" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow float-right"><i class="fas fa-plus"></i> Tambah (F9)</button>
                                         </div>
                                     </div>
                                     <!-- <div class="form-group row">
@@ -83,21 +80,61 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="card-footer" style="background-color: #fff">
+                        <div class="card-footer" style="background-color: #fff">
                             <button type="button" id="addcart" class="btn btn-sm btn-info float-right">Tambah (F9)</button>
-                        </div> -->
+                        </div>
                     </form>
                 </div>
                 <!-- /.card -->
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-info">
+                            <!-- form start -->
+                            <div class="card-body">
+                                <Center><label style="font-size: 40px" id="totalakhir2">Rp 0</label></Center>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- Horizontal Form -->
+                        <div class="card card-info">
+                            <!-- form start -->
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="tanggal" class="col-sm-4 col-form-label">Tanggal</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="tanggal" readonly
+                                            value="{{$tanggal}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tanggal" class="col-sm-4 col-form-label">Waktu</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="waktu" readonly
+                                            value="{{date('H:i:s')}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="kasir" class="col-sm-4 col-form-label">Kasir</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="kasir" readonly value="{{$kasir}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-12">
                 <div class="card card-info">
                     <!-- form start -->
                     <form class="form-horizontal">
-                        <div class="card-header text-lg py-4">
-                            <h4><b>Hasil Pencarian</b></h4>
-                        </div>
                         <div class="card-body">
                             <table id="cartTable" class="table table-bordered">
                                 <thead>
@@ -139,15 +176,6 @@
                                     <input type="text" class="form-control masking2" name="diskon" id="diskon" placeholder="0">
                                 </div>
                             </div>
-                            <!-- <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label">TOTAL AKHIR</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="totalakhir" id="totalakhir" readonly placeholder="0">
-                                </div>
-                            </div> -->
-                        </div>
-                        
-                        <div class="card-footer" style="background-color: #fff;border-top: 1px solid rgba(0,0,0,.125);">
                             <div class="form-group row">
                                 <label for="email" class="col-sm-4 col-form-label">TOTAL AKHIR</label>
                                 <div class="col-sm-8">
@@ -160,32 +188,21 @@
                     <!-- /.card -->
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-4">
                     <!-- Horizontal Form -->
-                    <div class="card">
+                    <div class="card card-info">
                         <!-- form start -->
-                        <div class="card-header text-lg py-4">
-                            <h4><b>Pembayaran</b></h4>
-                        </div>  
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Tunai</label>
-                                <div class="col-sm-6">
+                                <label for="email" class="col-sm-4 col-form-label">Tunai</label>
+                                <div class="col-sm-8">
                                     <input type="text" class="masking2 form-control" name="tunai" id="tunai" placeholder="0">
-                                </div>
-                                <div class="col">
-                                    <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow w-100"     
-                                            id="bayar">Proses Bayar (Enter)</button>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-sm-2 col-form-label">Kembali</label>
-                                <div class="col-sm-6">
+                                <label for="email" class="col-sm-4 col-form-label">Kembali</label>
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" name="kembalian" id="kembalian" readonly placeholder="0">
-                                </div>
-                                <div class="col">
-                                    <a type="button" class="btn btn-outline-danger rounded-8 w-100" href="{{url('/batal')}}"
-                                        id="batal">Batal (F5)</a>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +211,7 @@
                     <!-- /.card -->
                 </div>
 
-                <!-- <div class="col-md-3">
+                <div class="col-md-3">
                     <div class="col-md-8">
                         <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"     
                                 id="bayar">Proses Bayar (Enter)</button>
@@ -204,7 +221,7 @@
                         <a type="button" class="btn btn-outline-danger rounded-8" href="{{url('/batal')}}"
                             id="batal">Batal (F5)</a>
                     </div>
-                </div> -->
+                </div>
             </form>
         </div>
     </div>
@@ -342,7 +359,7 @@
                                 .toFixed(3) + "</td>" +
                                 "<td align='center'><a class='btn btn-outline-warning btn-sm update' data-id='" + id +
                                 "' data-toggle='modal' data-target='#editModal'><i class='fas fa-pencil-alt'></i></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
-                                id + "' data-name='" + namabarang + "'><i class='fa fa-trash'></i></button></td>" +
+                                id + "'><i class='fa fa-trash'></i></button></td>" +
                                 "</tr>";
 
                             $("#cartTable tbody").append(tr_str);
@@ -412,7 +429,7 @@
                                 "<td align='center' id='total_" + id + "'>" + (total / 1000).toFixed(3) + "</td>" +
                                 "<td align='center'><a class='btn btn-outline-warning btn-sm update' data-id='" + id +
                                 "' data-toggle='modal' data-target='#editModal'><i class='fas fa-pencil-alt'></i></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
-                                id + "' data-name='" + namabarang + "'><i class='fa fa-trash'></i></button></td>" +
+                                id + "'><i class='fa fa-trash'></i></button></td>" +
                                 "</tr>";
 
                             $("#cartTable tbody").append(tr_str);
@@ -460,17 +477,6 @@
 
         // Delete record
         $(document).on("click", ".delete", function () {
-            Swal.fire({
-                // icon: 'success',
-                title: 'Hapus Data',
-                // text: 'Akun berhasil dibuat!',
-                showConfirmButton: false,
-                html:`<p>Apakah Anda yakin menghapus ${$(this).data('name')} ?</p>` + `<div class="row mt-4"><button type="button" class="btn col mx-2 btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow delete-cart" data-id="${$(this).data('id')}">Oke (F9)</button><button type="button" onclick="Swal.close()" class="btn col mx-2 btn-outline-danger rounded-8" >Batal (F5)</button></div>`
-            })
-        });
-        $(document).on("click", ".delete-cart", function () {
-            console.log("aa");
-            Swal.close();
             var delete_id = $(this).data('id');
             var el = this;
             $.ajax({

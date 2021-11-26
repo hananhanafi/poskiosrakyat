@@ -154,7 +154,7 @@ class TransaksiController extends Controller
         // Call deleteData() method of Page Model
         Transaksi::deleteData($id);
 
-        echo "Apakah Anda yakin menghapus data?";
+        echo "Berhasil menghapus data";
         exit;
     }
 
