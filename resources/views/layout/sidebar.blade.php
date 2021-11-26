@@ -106,7 +106,7 @@
                     </li>
                 </ul>
             </li>
-            <!-- @if(Auth::guard('retailer')->check())
+            @if(Auth::guard('retailer')->check())
             <li class="nav-item">
                 <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
                     <ion-icon name="people"></ion-icon>
@@ -115,7 +115,7 @@
                     </p>
                 </a>
             </li>
-            @endif -->
+            @endif
             <li class="nav-item @yield('setting_menu_open')">
                 <a href="#" class="nav-link @yield('setting_aktif')">
                     <ion-icon name="cog"></ion-icon>
