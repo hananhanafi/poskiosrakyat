@@ -46,13 +46,13 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{route('transaksi.index')}}" class="nav-link @yield('penjualan_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Penjualan</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link @yield('pembelian_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Pembelian</p>
                         </a>
                     </li>
@@ -70,14 +70,14 @@
                     @if(Auth::guard('retailer')->check())
                     <li class="nav-item">
                         <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Operator Kasir</p>
                         </a>
                     </li>
                     @endif
                     <li class="nav-item">
                         <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Produk</p>
                         </a>
                     </li>
@@ -94,19 +94,19 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link @yield('harian_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Harian </p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link @yield('bulanan_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Bulanan</p>
                         </a>
                     </li>
                 </ul>
             </li>
-            <!-- @if(Auth::guard('retailer')->check())
+            @if(Auth::guard('retailer')->check())
             <li class="nav-item">
                 <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
                     <ion-icon name="people"></ion-icon>
@@ -115,7 +115,7 @@
                     </p>
                 </a>
             </li>
-            @endif -->
+            @endif
             <li class="nav-item @yield('setting_menu_open')">
                 <a href="#" class="nav-link @yield('setting_aktif')">
                     <ion-icon name="cog"></ion-icon>
@@ -127,19 +127,19 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{url('profile/retailer')}}" class="nav-link  @yield('profil_aktif')">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Profil</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Struk Nota</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <!-- <i class="far fa-circle nav-icon"></i> -->
+                            <i class="far fa-circle nav-icon"></i>
                             <p>Printer</p>
                         </a>
                     </li>

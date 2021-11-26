@@ -74,12 +74,6 @@
                                             <button type="button" id="addcart" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow float-right"><i class="fas fa-plus"></i> Tambah (F9)</button>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
-                                        <label for="deskripsiproduk" class="col-sm-6 col-form-label">Deskripsi Produk</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="deskripsiproduk" id="deskripsiproduk">
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>

@@ -45,21 +45,21 @@
                   <div class="form-group row">
                     <label for="name" class="col-md-3 col-form-label text-md-left">Nama</label>
                     <div class="col-md-6">
-                      <input id="name" type="text" class="form-control" name="nama" value="{{$row['nama']}}" placeholder="">
+                      <input id="name" type="text" class="form-control" name="nama" value="{{$row['nama']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="username" class="col-md-3 col-form-label text-md-left">Nama Pengguna</label>
                     <div class="col-md-6">
-                        <input id="username" type="text" class="form-control" name="username" value="{{$row['username']}}" placeholder="">
+                        <input id="username" type="text" class="form-control" name="username" value="{{$row['username']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                 <div class="form-group row">
                     <label for="password" class="col-md-3 col-form-label text-md-left">Kata Sandi</label>
                     <div class="col-md-6">
-                        <input id="new_password" type="password" class="form-control" name="password" value="********">
+                        <input id="new_password" type="password" class="form-control" name="password" value="********" readonly>
                     </div>
                 </div>
               </div>

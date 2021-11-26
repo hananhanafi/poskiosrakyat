@@ -53,21 +53,21 @@
                   <div class="form-group row">
                     <label for="name" class="col-md-3 col-form-label text-md-left">Nama</label>
                     <div class="col-md-6">
-                      <input id="name" type="text" class="form-control" name="name" value="{{$row['nama_pemilik']}}" placeholder="">
+                      <input id="name" type="text" class="form-control" name="name" value="{{$row['nama_pemilik']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="username" class="col-md-3 col-form-label text-md-left">Username</label>
                     <div class="col-md-6">
-                        <input id="username" type="text" class="form-control" name="username" value="{{$row['username']}}" placeholder="">
+                        <input id="username" type="text" class="form-control" name="username" value="{{$row['username']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                 <div class="form-group row">
                     <label for="password" class="col-md-3 col-form-label text-md-left">Kata Sandi</label>
                     <div class="col-md-6">
-                        <input id="new_password" type="password" class="form-control" name="password" value="********">
+                        <input id="new_password" type="password" class="form-control" name="password" value="********" readonly>
                     </div>
                 </div>
               </div>
@@ -88,21 +88,21 @@
                   <div class="form-group row">
                     <label for="name" class="col-md-3 col-form-label text-md-left">Nama Toko</label>
                     <div class="col-md-6">
-                      <input id="name" type="text" class="form-control" name="name" value="{{$row['nama_toko']}}" placeholder="">
+                      <input id="name" type="text" class="form-control" name="name" value="{{$row['nama_toko']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="phonenumber" class="col-md-3 col-form-label text-md-left">No Telp</label>
                     <div class="col-md-6">
-                        <input id="phonenumber" type="" class="form-control" name="phonenumber" value="{{$row['no_hp']}}" placeholder="">
+                        <input id="phonenumber" type="" class="form-control" name="phonenumber" value="{{$row['no_hp']}}" placeholder="" readonly>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label for="username" class="col-md-3 col-form-label text-md-left">Alamat</label>
                     <div class="col-md-6">
-                        <input id="username" type="text" class="form-control" name="username" value="{{$row['alamat']}}" placeholder="">
+                        <input id="username" type="text" class="form-control" name="username" value="{{$row['alamat']}}" placeholder="" readonly>
                     </div>
                   </div>
               </div>
