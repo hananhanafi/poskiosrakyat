@@ -93,22 +93,24 @@
                             <h4><b>Hasil Pencarian</b></h4>
                         </div>
                         <div class="card-body">
-                            <table id="cartTable" class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Kode Barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>Harga (Rp)</th>
-                                        <th>Jumlah</th>
-                                        <th>Total (Rp)</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                <tfoot>
-                                </tfoot>
-                            </table>
+                            <div class="" style="overflow-x:auto">
+                                <table id="cartTable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Kode Barang</th>
+                                            <th>Nama Barang</th>
+                                            <th>Harga</th>
+                                            <th>Jumlah</th>
+                                            <th>Total</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -330,12 +332,10 @@
                                 "<td>" + namabarang + "</td>" +
                                 "<td align='center'>" + (hargabarang / 1000).toFixed(3) +
                                 "</td>" +
-                                "<td align='center'><input type='text' value='" + jumlah +
-                                "' id='jumlah_" + id + "'></td>" +
+                                "<td align='center'><input type='number' min='1' class='form-control input-data-cart' value='" + jumlah + "' id='jumlah_" + id +"' data-id='" + id + "'></td>" +
                                 "<td align='center'>" + ((jumlah * hargabarang) / 1000)
                                 .toFixed(3) + "</td>" +
-                                "<td align='center'><a class='btn btn-outline-warning btn-sm update' data-id='" + id +
-                                "' data-toggle='modal' data-target='#editModal'><i class='fas fa-pencil-alt'></i></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
+                                "<td align='center'><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
                                 id + "' data-name='" + namabarang + "'><i class='fa fa-trash'></i></button></td>" +
                                 "</tr>";
 
@@ -402,10 +402,9 @@
                                 "<td>" + kode_produk + "</td>" +
                                 "<td>" + namabarang + "</td>" +
                                 "<td align='center' id='hargabarang_" + id + "' class='uang'>" + (hargabarang / 1000).toFixed(3) + "</td>" +
-                                "<td align='center'><input type='text' value='" + jumlah + "' id='jumlah_" + id + "'></td>" +
+                                "<td align='center'><input type='number' min='1' class='form-control input-data-cart' value='" + jumlah + "' id='jumlah_" + id +"' data-id='" + id + "'></td>" +
                                 "<td align='center' id='total_" + id + "'>" + (total / 1000).toFixed(3) + "</td>" +
-                                "<td align='center'><a class='btn btn-outline-warning btn-sm update' data-id='" + id +
-                                "' data-toggle='modal' data-target='#editModal'><i class='fas fa-pencil-alt'></i></a><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
+                                "<td align='center'><button type='button' class='btn btn-outline-danger btn-sm delete' data-toggle='modal' data-target='#modal-hapus' data-id='" +
                                 id + "' data-name='" + namabarang + "'><i class='fa fa-trash'></i></button></td>" +
                                 "</tr>";
 
@@ -429,27 +428,45 @@
         };
 
         //Update Cart
-        $(document).on("click", ".update", function () {
+        $(document).on("focusin", ".input-data-cart", function(){
+            console.log("Saving value " + $(this).val());
+            $(this).data('val', $(this).val());
+            
+        });
+        $(document).on("input", ".input-data-cart", function () {
+            var prev = $(this).data('val');
             var edit_id = $(this).data('id');
-            var jumlah = $('#jumlah_' + edit_id).val();
-
+            var jumlah = $(this).val();
+            var inputElement = $(this);
             if (jumlah != '' && jumlah > 0) {
-                $.ajax({
-                    url: '/updateCart',
-                    type: 'post',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        editid: edit_id,
-                        jumlah: jumlah
-                    },
-                    success: function (response) {
-                        fetchRecords();
-                        alert(response);
-                    }
-                });
+                if(prev!=jumlah){
+                    console.log("beda"); 
+                    $.ajax({
+                        url: '/updateCart',
+                        type: 'post',
+                        data: {
+                            _token: CSRF_TOKEN,
+                            editid: edit_id,
+                            jumlah: jumlah
+                        },
+                        success: function (response) {
+                            // fetchRecords();
+                            // alert(response);
+                            toastr.success('Berhasil mengubah jumlah barang', 'Success Alert', {timeOut: 5000});
+                        },
+                        error: function(response) {
+                            // alert(response);
+                            // alert("Aaaa")
+                            alert("Stok kurang");
+                            inputElement.val(prev);
+                        }
+                    });  
+                }
             } else {
-                alert('Jumlah tidak boleh kosong.');
+                $(this).val(prev);
             }
+            
+            $(this).data('val', jumlah);
         });
 
         // Delete record
@@ -473,7 +490,7 @@
                 success: function (response) {
                     $(el).closest("tr").remove();
                     fetchRecords();
-                    alert(response);
+                    toastr.success('Berhasil menghapus barang', 'Success Alert', {timeOut: 5000});
                 }
             });
         });

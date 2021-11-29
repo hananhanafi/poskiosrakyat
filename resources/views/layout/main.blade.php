@@ -26,6 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   
   <!-- <link rel="stylesheet" type="text/css" href="{{url('adminlte/dist/css/sweetalert2.css')}}"> -->
+  <link rel="stylesheet" href="{{url('adminlte/plugins/toastr/toastr.min.css')}}">
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">  
   <link rel="stylesheet" href="{{url('css/custom.css')}}">
@@ -92,6 +93,7 @@
 <script src="{{url('adminlte/dist/js/sweetalert2.min.js')}}"></script>
 <script src="{{url('adminlte/dist/js/sweetalert2.js')}}"></script>
 <script src="{{url('adminlte/dist/js/sweetalert2.all.js')}}"></script>
+<script src="{{url('adminlte/plugins/toastr/toastr.min.js')}}"></script>
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script src="{{url('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>

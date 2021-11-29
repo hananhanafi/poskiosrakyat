@@ -93,20 +93,20 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{url('report')}}" class="nav-link @yield('harian_aktif')">
+                        <a href="{{url('report')}}" class="nav-link @yield('report_penjualan_aktif')">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Harian </p>
+                            <p>Penjualan </p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="{{url('report')}}" class="nav-link @yield('bulanan_aktif')">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Bulanan</p>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
-            @if(Auth::guard('retailer')->check())
+            <!-- @if(Auth::guard('retailer')->check())
             <li class="nav-item">
                 <a href="{{url('/operator')}}" class="nav-link @yield('operator_aktif')">
                     <ion-icon name="people"></ion-icon>
@@ -115,7 +115,7 @@
                     </p>
                 </a>
             </li>
-            @endif
+            @endif -->
             <li class="nav-item @yield('setting_menu_open')">
                 <a href="#" class="nav-link @yield('setting_aktif')">
                     <ion-icon name="cog"></ion-icon>
@@ -131,7 +131,7 @@
                             <p>Profil</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Struk Nota</p>
@@ -142,6 +142,14 @@
                             <i class="far fa-circle nav-icon"></i>
                             <p>Printer</p>
                         </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            <a onclick="event.preventDefault(); this.closest('form').submit();" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Keluar</p>
+                            </a>
+                        </form>
                     </li>
                 </ul>
             </li>

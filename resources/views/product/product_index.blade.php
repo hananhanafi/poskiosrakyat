@@ -32,7 +32,7 @@
           <!-- <th>Deskripsi Produk</th> -->
           <th>Stok</th>
           <th>Foto</th>
-          <th>Aksi</th>
+          <!-- <th>Aksi</th> -->
         </tr>
         </thead>
         <tbody>
@@ -50,11 +50,11 @@
           <!-- <td>{{$data->deskripsi_produk}}</td> -->
           <td><img src="{{$data->foto ? "$data->foto" : url('img/gambar.jpg') }}" style="max-width:40px"></td>
           <!-- <td><img src='img/{{$data->foto}}'></td> -->
-          <td style="text-align: center;">
+          <!-- <td style="text-align: center;">
               <a href="{{route('product.stock.show', $data->id_retailer_produk)}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
               <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#modal-tambah-stok-produk-{{$data->id_retailer_produk}}" id="modal-tambah-stok-produk-{{$data->id_retailer_produk}}" data-toggle="modal" data-target="#tambahModal"><i class="fas fa-plus"></i></button>
               {{-- <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#modal-edit-stok-produk" id="modal-edit-stok-produk" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button> --}}
-          </td>
+          </td> -->
         </tr>
           @php
             $no++

@@ -136,13 +136,23 @@ class TransaksiController extends Controller
 
         $jumlah = $request->input('jumlah');
         $editid = $request->input('editid');
+        $checkProduk = RetailerProduk::where('id_retailer_produk', $editid)->first();
 
         if ($jumlah != '' && $jumlah > 0) {
-            $data = array('jumlah' => $jumlah);
+            
+            if (($checkProduk->stok - (int) $jumlah) >= 0) {
+                $data = array('jumlah' => $jumlah);
 
-            // Call updateData() method of Transaksi Model
-            Transaksi::updateData($editid, $data);
-            echo 'Sukses mengubah data';
+                // Call updateData() method of Transaksi Model
+                Transaksi::updateData($editid, $data);
+                echo 'Sukses mengubah data';
+            } else {
+                echo 'Stok produk ' . $checkProduk['nama'] . ' kurang.';
+                return response()->json([
+                    'message' => 'Stok produk ' . $checkProduk['nama'] . ' kurang.'
+                ],500);
+            }
+
         } else {
             echo 'Jumlah tidak boleh kosong';
         }
