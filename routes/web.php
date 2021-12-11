@@ -91,6 +91,7 @@ Route::group(['middleware' => 'auth:retailer'], function () {
     });
 
     Route::get('/profile/retailer', 'ProfileController@index');
+    Route::get('/profile/retailer/edit', 'ProfileController@edit');
     Route::post('/profile/retailer/update', 'ProfileController@update');
     Route::post('/profile/retailer/update/toko', 'ProfileController@update_toko');
     Route::post('/profile/retailer/update/password', 'ProfileController@update_password');

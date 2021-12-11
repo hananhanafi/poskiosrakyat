@@ -28,13 +28,26 @@ class ProfileController extends Controller
 
         return view('setting.profile-retailer', compact('data'));
     }
+    public function edit()
+    {
+        $data = Retailer::leftJoin('_village', 'retailer.village_id', '=', '_village.village_id')
+            ->where('id_retailer', '=', Auth::user()->id_retailer)
+            ->get()
+            ->toArray();
+        // return $data;
+
+        return view('setting.profile-retailer-edit', compact('data'));
+    }
 
     public function update(Request $request)
     {
         // return $request;
         $this->validate($request, [
             'nama_pemilik' => 'required|string|max:255',
+            'nama_toko' => 'required|string|max:255',
             'username' => 'required|string|max:255',
+            'no_hp' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
         ]);
 
         DB::beginTransaction();
@@ -43,18 +56,26 @@ class ProfileController extends Controller
                 $extension = $request->file('file_foto_depan')->getClientOriginalExtension();
                 $filenameSimpan = time() . '.' . $extension;
                 $path = $request->file('file_foto_depan')->storeAs('public/posts_image', $filenameSimpan);
+                // Storage::disk('public')->put($filenameSimpan, $request->file_foto_depan);
 
                 Retailer::where('id_retailer', $request->id_retailer)
                     ->update([
                         'username' => $request->username,
                         'nama_pemilik' => $request->nama_pemilik,
-                        'file_foto_depan' => route('root.url') . str_replace('public', '/storage', $path)
+                        'no_hp' => $request->no_hp,
+                        'nama_toko' => $request->nama_toko,
+                        'alamat' => $request->alamat,
+                        // 'file_foto_depan' => route('root.url') . str_replace('public', '/storage', $path)
+                        'file_foto_depan' => $filenameSimpan
                     ]);
             } else {
                 Retailer::where('id_retailer', $request->id_retailer)
                     ->update([
                         'username' => $request->username,
-                        'nama_pemilik' => $request->nama_pemilik
+                        'nama_pemilik' => $request->nama_pemilik,
+                        'no_hp' => $request->no_hp,
+                        'nama_toko' => $request->nama_toko,
+                        'alamat' => $request->alamat,
                     ]);
             }
         } catch (\Exception $e) {

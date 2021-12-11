@@ -35,29 +35,6 @@
                         Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item  @yield('transaction_menu_open')">
-                <a class="nav-link @yield('transaction_aktif')">
-                    <ion-icon name="cart"></ion-icon>
-                    <p>
-                        Transaksi
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{route('transaksi.index')}}" class="nav-link @yield('penjualan_aktif')">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Penjualan</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link @yield('pembelian_aktif')">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Pembelian</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
             <li class="nav-item @yield('management_menu_open')">
                 <a class="nav-link @yield('management_aktif')">
                     <ion-icon name="basket"></ion-icon>
@@ -79,6 +56,29 @@
                         <a href="{{route('product.index')}}" class="nav-link @yield('product_aktif')">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Produk</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item  @yield('transaction_menu_open')">
+                <a class="nav-link @yield('transaction_aktif')">
+                    <ion-icon name="cart"></ion-icon>
+                    <p>
+                        Transaksi
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('transaksi.index')}}" class="nav-link @yield('penjualan_aktif')">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Penjualan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link @yield('pembelian_aktif')">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Pembelian</p>
                         </a>
                     </li>
                 </ul>
@@ -145,6 +145,7 @@
                     </li> -->
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}">
+                            @csrf
                             <a onclick="event.preventDefault(); this.closest('form').submit();" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Keluar</p>
