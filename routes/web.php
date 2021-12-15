@@ -75,6 +75,13 @@ Route::group(['middleware' => 'auth:retailer,retailer_operator'], function () {
     Route::get('/deleteCart/{id}', 'TransaksiController@deleteCart');
     Route::post('/bayar', 'TransaksiController@bayar')->name('transaksi.bayar');
     Route::get('/batal', 'TransaksiController@batal')->name('transaksi.batal');
+
+    
+    // TRANSAKSI
+    Route::resource('pembelian', 'PembelianController');
+    Route::post('/pembelian/save', 'PembelianController@save');
+    // Route::get('pembelian/print/{id}', 'PembelianController@print');
+
 });
 
 Route::group(['middleware' => 'auth:retailer'], function () {

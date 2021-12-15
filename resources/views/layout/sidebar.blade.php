@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link @yield('pembelian_aktif')">
+                        <a href="{{route('pembelian.index')}}" class="nav-link @yield('pembelian_aktif')">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Pembelian</p>
                         </a>

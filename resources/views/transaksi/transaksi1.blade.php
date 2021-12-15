@@ -44,27 +44,31 @@
                                                 autofocus>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
+                                    <!-- hide -->
+                                    <div class="form-group row d-none">
                                         <label for="hargajual" class="col-sm-6 col-form-label">Harga Jual</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargajual" id="hargajual" readonly>
                                         </div>
-                                    </div> -->
-                                    <!-- <div class="form-group row">
+                                    </div>
+                                    <div class="form-group row d-none">
                                         <label for="foto" class="col-sm-6 col-form-label">Foto Produk</label>
                                         <div class="col-sm-6">
                                             {{-- <input type="text" class="form-control" name="foto" id="foto"> --}}
                                             <img src="" id="foto" style="width: 150px;">
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <!-- hide -->
                                 </div>
                                 <div class="col-md-5">
-                                    <!-- <div class="form-group row">
+                                    <!-- hide -->
+                                    <div class="form-group row d-none">
                                         <label for="hargadiskon" class="col-sm-6 col-form-label">Harga Setelah Diskon</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="hargadiskon" id="hargadiskon" readonly>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <!-- hide -->
                                     <div class="form-group row">
                                         <label for="jumlah" class="pl-4 col-form-label text-right">Jumlah Beli</label>
                                         <div class="col-2">
@@ -77,9 +81,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="card-footer" style="background-color: #fff">
-                            <button type="button" id="addcart" class="btn btn-sm btn-info float-right">Tambah (F9)</button>
-                        </div> -->
                     </form>
                 </div>
                 <!-- /.card -->
@@ -90,7 +91,7 @@
                     <!-- form start -->
                     <form class="form-horizontal">
                         <div class="card-header text-lg py-4">
-                            <h4><b>Hasil Pencarian</b></h4>
+                            <h4><b>Keranjang Belanja</b></h4>
                         </div>
                         <div class="card-body">
                             <div class="" style="overflow-x:auto">
@@ -135,12 +136,6 @@
                                     <input type="text" class="form-control masking2" name="diskon" id="diskon" placeholder="0">
                                 </div>
                             </div>
-                            <!-- <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label">TOTAL AKHIR</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="totalakhir" id="totalakhir" readonly placeholder="0">
-                                </div>
-                            </div> -->
                         </div>
                         
                         <div class="card-footer" style="background-color: #fff;border-top: 1px solid rgba(0,0,0,.125);">
@@ -160,7 +155,7 @@
                     <!-- Horizontal Form -->
                     <div class="card">
                         <!-- form start -->
-                        <div class="card-header text-lg py-4">
+                        <div class="card-header text-lg py-3">
                             <h4><b>Pembayaran</b></h4>
                         </div>  
                         <div class="card-body">
@@ -189,18 +184,6 @@
                     </div>
                     <!-- /.card -->
                 </div>
-
-                <!-- <div class="col-md-3">
-                    <div class="col-md-8">
-                        <button type="submit" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"     
-                                id="bayar">Proses Bayar (Enter)</button>
-                    </div>
-                    <br>
-                    <div class="col-md-6">
-                        <a type="button" class="btn btn-outline-danger rounded-8" href="{{url('/batal')}}"
-                            id="batal">Batal (F5)</a>
-                    </div>
-                </div> -->
             </form>
         </div>
     </div>
@@ -440,7 +423,6 @@
             var inputElement = $(this);
             if (jumlah != '' && jumlah > 0) {
                 if(prev!=jumlah){
-                    console.log("beda"); 
                     $.ajax({
                         url: '/updateCart',
                         type: 'post',
@@ -450,17 +432,17 @@
                             jumlah: jumlah
                         },
                         success: function (response) {
-                            // fetchRecords();
                             // alert(response);
                             toastr.success('Berhasil mengubah jumlah barang', 'Success Alert', {timeOut: 5000});
+                            fetchRecords();
                         },
                         error: function(response) {
                             // alert(response);
                             // alert("Aaaa")
-                            alert("Stok kurang");
+                            toastr.error('Stok kurang', 'Error Alert', {timeOut: 5000});
                             inputElement.val(prev);
                         }
-                    });  
+                    });
                 }
             } else {
                 $(this).val(prev);

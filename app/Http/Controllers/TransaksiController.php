@@ -78,9 +78,9 @@ class TransaksiController extends Controller
         foreach ($datas as $data) {
             if ($data->stok > 0) {
                 if (isset($data->harga_diskon)) {
-                    $response[] = array("price" => number_format($data->harga_jual, 0, ".", "."), "label" => $data->nama, "deskripsi_produk" => $data->deskripsi_produk, "diskon" => number_format($data->harga_diskon, 0, ".", "."), "idretailerproduk" => $data->id_retailer_produk, "kode_produk" => $data->kode_produk, "foto" => $data->foto);
+                    $response[] = array("price" => number_format($data->harga_jual, 0, ".", "."), "label" => $data->nama, "deskripsi_produk" => $data->deskripsi_produk, "diskon" => number_format($data->harga_diskon, 0, ".", "."), "idretailerproduk" => $data->id_retailer_produk, "kode_produk" => $data->kode_produk, "foto" => $data->foto, "price_int" => $data->harga_jual);
                 } else {
-                    $response[] = array("price" => number_format($data->harga_jual, 0, ".", "."), "label" => $data->nama, "deskripsi_produk" => $data->deskripsi_produk, "diskon" => number_format($data->harga_jual, 0, ".", "."), "idretailerproduk" => $data->id_retailer_produk, "kode_produk" => $data->kode_produk, "foto" => $data->foto);
+                    $response[] = array("price" => number_format($data->harga_jual, 0, ".", "."), "label" => $data->nama, "deskripsi_produk" => $data->deskripsi_produk, "diskon" => number_format($data->harga_jual, 0, ".", "."), "idretailerproduk" => $data->id_retailer_produk, "kode_produk" => $data->kode_produk, "foto" => $data->foto, "price_int" => $data->harga_jual);
                 }
             }
         }
