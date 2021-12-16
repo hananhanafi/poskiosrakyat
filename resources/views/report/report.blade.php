@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('report_menu_open', 'menu-is-opening menu-open')
 @section('report_aktif', 'active')
-@section('harian_aktif', 'active')
+@section('report_penjualan_aktif', 'active')
 
 @section('navigation')
 <div class="col-sm-6">
@@ -25,50 +25,54 @@
         <div class="card-body">
             <!-- Split button -->
                      <!-- /.card-body -->
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
+            <div class="" style="overflow-x:auto">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID Transaksi</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Operator Kasir</th>
+                            <th>Total</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @php
+                        $no = 1;
+                    @endphp
+                    @foreach ($laporan as $data)
                     <tr>
-                        <th>No</th>
-                        <th>Nomor Transaksi</th>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Petugas Kasir</th>
-                        <th>Aksi</th>
+                        <td>{{$no}}</td>
+                        <td>{{$data->kode_pesanan}}</td>
+                        <!-- <td>{{date ('l d-m-Y',strtotime($data->tanggal))}}</td> -->
+                        <td>{{date ('m-d-Y',strtotime($data->tanggal))}}</td>
+                        <td>{{date('H:i:s',strtotime($data->tanggal))}}</td>
+                        <td>{{$data->nama}}</td>
+                        <td>{{$data->subtotal}}</td>
+                        <td style="text-align: center;">
+                            <a href="{{ url('transaksi/print/'.$data->kode_pesanan) }}" target="_blank" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"><i class="fas fa-print"></i> Print</a>
+                            {{-- <button type="button" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"  id="nomor_transaksi" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button> --}}
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                @php
-                    $no = 1;
-                @endphp
-                @foreach ($laporan as $data)
-                <tr>
-                    <td>{{$no}}</td>
-                    <td>{{$data->kode_pesanan}}</td>
-                    <!-- <td>{{date ('l d-m-Y',strtotime($data->tanggal))}}</td> -->
-                    <td>{{date ('d-m-Y',strtotime($data->tanggal))}}</td>
-                    <td>{{date('H:i:s',strtotime($data->tanggal))}}</td>
-                    <td>{{$data->nama}}</td>
-                    <td style="text-align: center;">
-                        <a href="{{ url('transaksi/print/'.$data->kode_pesanan) }}" target="_blank" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"><i class="fas fa-print"></i> Print</a>
-                        {{-- <button type="button" class="btn  btn-brand-secondary btn-sm bg-brand-secondary text-white rounded-8 no-shadow"  id="nomor_transaksi" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button> --}}
-                    </td>
-                </tr>
-                @php
-                    $no++
-                @endphp
-                @endforeach
-                </tbody>
-                <!-- <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nomor Transaksi</th>
-                        <th>Hari, Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Petugas Kasir</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot> -->
-            </table>
+                    @php
+                        $no++
+                    @endphp
+                    @endforeach
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>Nomor Transaksi</th>
+                            <th>Hari, Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Petugas Kasir</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
         <!-- /.card-body -->
 
                 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

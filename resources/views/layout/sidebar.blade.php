@@ -125,12 +125,14 @@
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
+                    @if(Auth::guard('retailer')->check())
                     <li class="nav-item">
                         <a href="{{url('profile/retailer')}}" class="nav-link  @yield('profil_aktif')">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Profil</p>
                         </a>
                     </li>
+                    @endif
                     <!-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>

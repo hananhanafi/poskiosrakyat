@@ -19,8 +19,9 @@ class ReportController extends Controller
     {
         $laporan = DB::table('pesanan_pos')
         ->leftJoin('retailer_operator','pesanan_pos.id_retailer_operator','=','retailer_operator.id_retailer_operator')
-        // ->where('retailer_operator.id_retailer', '=',  Auth::user()->id_retailer)
         ->where('pesanan_pos.id_retailer', '=',  Auth::user()->id_retailer)
+        ->leftJoin('pesanan_pos_detail','pesanan_pos.kode_pesanan','=','pesanan_pos_detail.kode_pesanan')
+        // ->where('retailer_operator.id_retailer', '=',  Auth::user()->id_retailer)
         ->get();
 
         //dd($laporan);
